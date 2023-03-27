@@ -1,19 +1,21 @@
-MySensors Library v2.4.0-alpha
+MySensors for Attiny (v0.1)
 
-Please visit www.mysensors.org for more information
+"Fork" from MySensors Library v2.4.0-alpha.
 
-Current version in Arduino IDE [![arduino-library-badge](https://www.ardu-badge.com/badge/MySensors.svg)](https://www.ardu-badge.com/MySensors)
+Should work with any board. Use the example to test it.
+What it can do :
+- Passive Node with RFM69 on Attiny85 @ 8Mhz with micronucleus with tinySPI
 
-Documentation
--------------
-[master](https://www.mysensors.org/apidocs/index.html) [development](https://www.mysensors.org/apidocs-beta/index.html)
+What is not working :
+- Interrupt
 
-CI statuses
------------
-Current build status of master branch: [![Build Status](https://ci.mysensors.org/job/MySensors/job/MySensors/job/master/badge/icon)](https://ci.mysensors.org/job/MySensors/job/MySensors/job/master/)
+What is should work :
+- Any board
+- Optiboot (save 1.5K)
+- direct
 
-Current build status of development branch: [![Build Status](https://ci.mysensors.org/job/MySensors/job/MySensors/job/development/badge/icon)](https://ci.mysensors.org/job/MySensors/job/MySensors/job/development/)
+Could use RST Pin.
 
-Current build status of master branch (nightly build of Arduino IDE): [![Build Status](https://ci.mysensors.org/job/MySensors-nightly-IDE/job/MySensors/job/master/badge/icon)](https://ci.mysensors.org/job/MySensors-nightly-IDE/job/MySensors/job/master/)
+Try the example
 
-Current build status of development branch (nightly build of Arduino IDE): [![Build Status](https://ci.mysensors.org/job/MySensors-nightly-IDE/job/MySensors/job/development/badge/icon)](https://ci.mysensors.org/job/MySensors-nightly-IDE/job/MySensors/job/development/)
+How to make it work :
