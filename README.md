@@ -1,22 +1,15 @@
-MySensors for Attiny (v0.1). "Fork" from MySensors Library v2.4.0-alpha.
+MySensors with Attiny support (v0.1). "Fork" from [MySensors Library v2.4.0-alpha.](https://www.mysensors.org/)
 
-Should work with any board. Use the example to test it.
-What it can do :
-- Passive Node with RFM69 on Attiny85 @ 8Mhz with micronucleus with tinySPI
 
-What is not working :
+#What is not working :
 - Interrupt
 
-What is should work :
-- Any board
+#What should work :
+- Any Attiny
 - Optiboot (save 1.5K)
-- direct
+- no bootloader
 
-Could use RST Pin.
-
-Try the example
-
-How to make it work :
+#How to make it work :
 
 1/ Take an arduino (UNO/Nano/...), put the sketch Examples/arduinoISP/arduinoISP
 
@@ -66,5 +59,11 @@ SCK/PB2         (7) - SCK
 /!\ Actually (27/03/2023), Arduino IDE 2.0.4 don't work, looks like it need some update from Attinycore (1.5.2), use the 1.8.x version
 Enjoy
 
-In case of, to burn the fuse :
+#In case of, to burn the fuse :
 https://www.best-microcontroller-projects.com/unbrick-attiny.html
+
+#Pseudo Versionning :
+V0.1 :
+- Passive Node with RFM69 on Attiny85 @ 8Mhz with [micronucleus](https://github.com/micronucleus/micronucleus) & [tinySPI](https://github.com/JChristensen/tinySPI)
+
+![I don't know what i'm doing](http://edutechniques.com/wp-content/uploads/2019/09/e8df23cc-9bfe-4776-ae54-22d67d47f15a-6442-000008859e923c5f.png)

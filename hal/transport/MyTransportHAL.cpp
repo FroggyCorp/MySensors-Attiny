@@ -28,7 +28,7 @@
 
 bool transportHALInit(void)
 {
-	//TRANSPORT_HAL_DEBUG(PSTR("THA:INIT\n"));
+	TRANSPORT_HAL_DEBUG(PSTR("THA:INIT\n"));
 #if defined(MY_TRANSPORT_ENCRYPTION)
 	uint8_t transportPSK[16];
 #if defined(MY_ENCRYPTION_SIMPLE_PASSWD)

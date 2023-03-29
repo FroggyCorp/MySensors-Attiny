@@ -345,8 +345,22 @@ uint16_t hwCPUFrequency(void)
 	// return frequency in 1/10MHz (accuracy +- 10%)
 	return result;
 
-	#else
-	return 0;
+	#elseif defined(__AVR_ATtiny85__)
+	cli();
+    uint8_t lowBits      = boot_lock_fuse_bits_get(GET_LOW_FUSE_BITS);
+/*    uint8_t highBits     = boot_lock_fuse_bits_get(GET_HIGH_FUSE_BITS);
+    uint8_t extendedBits = boot_lock_fuse_bits_get(GET_EXTENDED_FUSE_BITS);
+    uint8_t lockBits     = boot_lock_fuse_bits_get(GET_LOCK_BITS);*/
+    sei();
+	if (lowBits && 0b00000001)
+		return 160;
+	if (lowBits && 0b00000010)
+		return 80;
+	if (lowBits && 0b00000011)
+		return 64;
+	if (lowBits && 0b00000100)
+		return 128;
+	return false;
 	#endif
 
 }
