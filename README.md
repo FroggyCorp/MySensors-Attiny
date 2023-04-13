@@ -17,8 +17,8 @@ MySensors with Attiny support (v0.1). "Fork" from [MySensors Library v2.4.0-alph
 | Attiny | (Pin number) | (Pin number) Arduino |
 | --- | --- | --- |
 | Reset/PB5 | (1) | (10) |
-| PB3 | (2) | |
-| PB4 | (3) | |  
+| PB3 | (2) |   |
+| PB4 | (3) |   |  
 | GND | (4) | GND |
 | MOSI/PB0 | (5) | (11) |
 | MISO/PB1 | (6) | (12) |
