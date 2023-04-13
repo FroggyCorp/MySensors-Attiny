@@ -33,9 +33,10 @@ Add a Capacitor (10uF) on arduino beetween ground & reset.
 
 5. Download AVRDUDESS (https://github.com/ZakKemble/AVRDUDESS)
 
-6a. Download Micronucleus (https://github.com/micronucleus/micronucleus)
-6b. Download Optiboot
-6c. Only use arduino as ISP
+6.
+- 6a Download Micronucleus (https://github.com/micronucleus/micronucleus)
+- 6b Download Optiboot
+- 6c Only use arduino as ISP
 
 7. Launch AVRDUDESS and put the bootloader, change fuse if needed.
 
