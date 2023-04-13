@@ -49,6 +49,8 @@ Add a Capacitor (10uF) on arduino beetween ground & reset.
 
 9. Connect RFM69 to Attiny85 :
 
+**RFM69 don't support 5V, use convertor**
+
 | Attiny | Attiny (Pin number) | RFM69 |
 | --- | --- | --- |
 | SS/PB3 | (2) | SCK |
