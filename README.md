@@ -15,7 +15,7 @@ MySensors with Attiny support (v0.1). "Fork" from [MySensors Library v2.4.0-alph
 
 2. Connect the arduino to the Attiny85 : (https://www.instructables.com/How-to-Program-an-Attiny85-From-an-Arduino-Uno/)
 | Attiny | (Pin number) | (Pin number) Arduino |
-| --- | --- |
+| --- | --- | --- |
 | Reset/PB5 | (1) | (10) |
 | PB3 | (2) | |
 | PB4 | (3) | |  
@@ -49,7 +49,7 @@ Add a Capacitor (10uF) on arduino beetween ground & reset.
 9. Connect RFM69 to Attiny85 :
 
 | Attiny | (Pin number) | RFM69 |
-| --- | --- |
+| --- | --- | --- |
 | SS/PB3 | (2) | SCK |
 | MOSI/PB1 | (6) | MOSI |
 | MISO/PB0 | (5) | MISO |
