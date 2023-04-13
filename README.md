@@ -14,6 +14,7 @@ MySensors with Attiny support (v0.1). "Fork" from [MySensors Library v2.4.0-alph
 1. Take an arduino (UNO/Nano/...), put the sketch Examples/arduinoISP/arduinoISP
 
 2. Connect the arduino to the Attiny85 : (https://www.instructables.com/How-to-Program-an-Attiny85-From-an-Arduino-Uno/)
+
 | Attiny | Attiny (Pin number) | (Pin number) Arduino |
 | --- | --- | --- |
 | Reset/PB5 | (1) | (10) |
