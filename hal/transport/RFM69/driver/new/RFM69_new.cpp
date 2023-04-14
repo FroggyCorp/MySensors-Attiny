@@ -232,8 +232,10 @@ LOCAL bool RFM69_initialise(const uint32_t frequencyHz)
 	}
 	// IRQ
 	RFM69_irq = false;
+	#if !defined(MY_RFM69_NO_IRQ)
 	hwPinMode(MY_RFM69_IRQ_PIN, INPUT);
 	attachInterrupt(MY_RFM69_IRQ_NUM, RFM69_interruptHandler, RISING);
+	#endif
 	return true;
 }
 
@@ -241,6 +243,7 @@ LOCAL void RFM69_clearFIFO(void)
 {
 	(void)RFM69_writeReg(RFM69_REG_IRQFLAGS2, RFM69_IRQFLAGS2_FIFOOVERRUN);
 }
+
 // IRQ handler: PayloadReady (RX) & PacketSent (TX) mapped to DI0
 LOCAL void IRQ_HANDLER_ATTR RFM69_interruptHandler(void)
 {
@@ -320,6 +323,12 @@ LOCAL void RFM69_interruptHandling(void)
 
 LOCAL void RFM69_handler(void)
 {
+#if defined(MY_RFM69_NO_IRQ)
+		const uint8_t regIrqFlags2 = RFM69_readReg(RFM69_REG_IRQFLAGS2);
+		if (RFM69.radioMode == RFM69_RADIO_MODE_RX && (regIrqFlags2 & RFM69_IRQFLAGS2_PAYLOADREADY) && (regIrqFlags2 & RFM69_IRQFLAGS2_FIFOLEVEL))	//direct read of RFM69 register
+			RFM69_irq = true;
+#endif
+
 	if (RFM69_irq) {
 		// radio is in STDBY
 		// clear flag, 8bit - no need for critical section
@@ -403,7 +412,14 @@ LOCAL bool RFM69_sendFrame(rfm69_packet_t *packet, const bool increaseSequenceCo
 	// send message
 	(void)RFM69_setRadioMode(RFM69_RADIO_MODE_TX); // irq upon txsent
 	const uint32_t txStartMS = hwMillis();
+
+
 	while (!RFM69_irq && (hwMillis() - txStartMS < MY_RFM69_TX_TIMEOUT_MS)) {
+#if defined(MY_RFM69_NO_IRQ)
+		const uint8_t regIrqFlags2 = RFM69_readReg(RFM69_REG_IRQFLAGS2);
+		if (regIrqFlags2 & 0b1000)	//complete packet as been sent
+			RFM69_irq = true;
+#endif
 		doYield();
 	};
 	return RFM69_irq;

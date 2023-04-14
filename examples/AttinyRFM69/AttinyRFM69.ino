@@ -22,6 +22,7 @@ extern void serialEventRun(void) __attribute__((weak));
 #define TIFR1 TIFR	// optional
 
 #define MY_PASSIVE_NODE
+//#define MY_RFM69_NO_IRQ //Keep ACK but without IRQ, useless if PASSIVE_MODE enable
 #define MY_RFM69_IRQ_PIN 4 //Need to be set to work
 #define MY_RFM69_CS_PIN 3 //D8 // NSS. Use MY_RFM69_SPI_CS for older versions (before 2.2.0)
 
