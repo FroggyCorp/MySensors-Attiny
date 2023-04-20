@@ -352,13 +352,13 @@ uint16_t hwCPUFrequency(void)
     uint8_t extendedBits = boot_lock_fuse_bits_get(GET_EXTENDED_FUSE_BITS);
     uint8_t lockBits     = boot_lock_fuse_bits_get(GET_LOCK_BITS);*/
     sei();
-	if (lowBits && 0b00000001)
+	if (lowBits & 0b00000001)
 		return 160;
-	if (lowBits && 0b00000010)
+	if (lowBits & 0b00000010)
 		return 80;
-	if (lowBits && 0b00000011)
+	if (lowBits & 0b00000011)
 		return 64;
-	if (lowBits && 0b00000100)
+	if (lowBits & 0b00000100)
 		return 1;
 	return false;
 	#endif
