@@ -1,11 +1,13 @@
-MySensors with Attiny support (v0.1). "Fork" from [MySensors Library v2.4.0-alpha.](https://www.mysensors.org/)
+MySensors with Attiny support (v0.2). "Fork" from [MySensors Library v2.4.0-alpha.](https://www.mysensors.org/)
 
+# What works :
+- Attiny85
+- Micronucleus or no bootloader
+- Direct reading RFM69 register than using int for ACK
 
 # What should work :
 - Any Attiny
-- Optiboot (save 1.5KB)
-- no bootloader
-- Direct reading RFM69 register than using int
+- Optiboot (save 1.5KB than micronucleus)
 
 # What is not working :
 - Interrupt : int0 is on the same pin as SCK. DIO stay high all the time, so can't use PCINT
@@ -59,7 +61,9 @@ Add a Capacitor (10uF) on arduino beetween ground & reset.
 | MISO/PB0 | (5) | MISO |
 | SCK/PB2 | (7) | SCK |
 
-/!\ In documentation, PB1 = MISO & PB0 = MOSI, Spence Konde explain it here : (ATTinyCore/hardware/avr/1.5.2/variants/tinyX5pins_arduino.h)
+/!\ In documentation, PB1 = MISO & PB0 = MOSI, Spence Konde explain it here : 
+(ATTinyCore/hardware/avr/1.5.2/variants/tinyX5pins_arduino.h)
+
 "This part has a USI, not an SPI module. Accordingly, there is no MISO/MOSI in hardware. There's a DI and a DO. When the chip is used as master, DI is used as MISO, DO is MOSI; the defines here specify the pins for master mode, as SPI master is much more commonly used in Arduino-land than SPI slave, and these defines are required for compatibility. Be aware of this when using the USI SPI fucntionality (and also, be aware that the MISO and MOSI markings on the pinout diagram in the datasheet are for ISP programming, where the chip is a slave. The pinout diagram included with this core attempts to clarify this)"
 
 
@@ -78,7 +82,7 @@ It reads registers on part of RFM69 drivers where it needs to get interrupt info
 Save 1 I/O of Attiny85
 - Add pseudo hwCPUFrequency() by reading fuse
 
-V0.1 :
+v0.1 :
 - Passive Node with RFM69 on Attiny85 @ 8Mhz with [micronucleus](https://github.com/micronucleus/micronucleus) & [tinySPI](https://github.com/JChristensen/tinySPI)
 
 ![I don't know what i'm doing](http://edutechniques.com/wp-content/uploads/2019/09/e8df23cc-9bfe-4776-ae54-22d67d47f15a-6442-000008859e923c5f.png)
